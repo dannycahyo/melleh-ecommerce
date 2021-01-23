@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { bestSelling } from "./App";
+import { bestSelling } from "../App";
 
-function KomputerAccesories() {
+function PerlengkapanBayi() {
   const [bestSelling, setBestSelling] = useState<bestSelling[]>([]);
   for (let i = 0; i < 10; i++) {
     bestSelling.push({
@@ -12,11 +12,10 @@ function KomputerAccesories() {
       avatar:
         "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
       description:
-        "Asian best seller computer, Feel the test of never getting bug and error ",
+        "Japan's product for better world towards baby, Feel the test of hilt ",
       overView:
-        "This one is the most popular computer for employee productivity in office",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwe5ok_xU3idDQfBOS0BB4bKqLgGLkbbUTEQ&usqp=CAU",
+        "This one is the most popular baby product, Once you lick you will never put it out",
+      image: "https://cf.shopee.co.id/file/4c7f89f01c3ad5bf49d2dd68a3a888f2",
     });
   }
 
@@ -76,4 +75,4 @@ function KomputerAccesories() {
   );
 }
 
-export default KomputerAccesories;
+export default PerlengkapanBayi;

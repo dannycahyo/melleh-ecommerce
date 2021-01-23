@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { bestSelling } from "./App";
+import { bestSelling } from "../App";
 
-function Elektronik() {
+function KomputerAccesories() {
   const [bestSelling, setBestSelling] = useState<bestSelling[]>([]);
   for (let i = 0; i < 10; i++) {
     bestSelling.push({
@@ -12,11 +12,11 @@ function Elektronik() {
       avatar:
         "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
       description:
-        "World's Slimmest Gaming Laptop with NVIDIA© GeForce© GTX 1080",
+        "Asian best seller computer, Feel the test of never getting bug and error ",
       overView:
-        "This one is the most popular laptop for teenagers, born to be laptop gaming in 21st Century",
+        "This one is the most popular computer for employee productivity in office",
       image:
-        "https://cdn.medcom.id/images/content/2019/07/03/1038320/fO7HtXghpT.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwe5ok_xU3idDQfBOS0BB4bKqLgGLkbbUTEQ&usqp=CAU",
     });
   }
 
@@ -76,4 +76,4 @@ function Elektronik() {
   );
 }
 
-export default Elektronik;
+export default KomputerAccesories;

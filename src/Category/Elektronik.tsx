@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { bestSelling } from "./App";
+import { bestSelling } from "../App";
 
-function HPAccesories() {
+function Elektronik() {
   const [bestSelling, setBestSelling] = useState<bestSelling[]>([]);
   for (let i = 0; i < 10; i++) {
     bestSelling.push({
@@ -12,11 +12,11 @@ function HPAccesories() {
       avatar:
         "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
       description:
-        "World's Famost Handphone For Over The World, Best Quality And Lux Stuff",
+        "World's Slimmest Gaming Laptop with NVIDIA© GeForce© GTX 1080",
       overView:
-        "This one is the most popular hanphone for rich people, born to be elite handphone in 21st Century",
+        "This one is the most popular laptop for teenagers, born to be laptop gaming in 21st Century",
       image:
-        "https://cdn-2.tstatic.net/kaltim/foto/bank/images/iphone-11-iphone-11-pro-dan-iphone-11-pro-max-zdnetcom.jpg",
+        "https://cdn.medcom.id/images/content/2019/07/03/1038320/fO7HtXghpT.jpg",
     });
   }
 
@@ -76,4 +76,4 @@ function HPAccesories() {
   );
 }
 
-export default HPAccesories;
+export default Elektronik;

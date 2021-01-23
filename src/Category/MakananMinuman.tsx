@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { bestSelling } from "./App";
+import { bestSelling } from "../App";
 
-function Fotografi() {
+function MakananMinuman() {
   const [bestSelling, setBestSelling] = useState<bestSelling[]>([]);
   for (let i = 0; i < 10; i++) {
     bestSelling.push({
@@ -12,11 +12,11 @@ function Fotografi() {
       avatar:
         "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
       description:
-        "World  Famost Camera For Over The World, Best Quality Picture",
+        "Chinese  Famost Food For Over The World, Best Quality And Spicy Food",
       overView:
-        "This one is the most popular Camera for majority people in development country",
+        "This one is the most popular Food for majority people either in village or city",
       image:
-        "https://images-na.ssl-images-amazon.com/images/I/81S0716mezL._AC_SL1500_.jpg",
+        "https://b.zmtcdn.com/data/pictures/1/19142331/d4bbca2157613d1cc27a6c9661702717.jpg",
     });
   }
 
@@ -76,4 +76,4 @@ function Fotografi() {
   );
 }
 
-export default Fotografi;
+export default MakananMinuman;

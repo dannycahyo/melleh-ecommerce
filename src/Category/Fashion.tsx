@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { bestSelling } from "../App";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { bestSelling } from "./App";
 
-function MakananMinuman() {
+function Fashion() {
   const [bestSelling, setBestSelling] = useState<bestSelling[]>([]);
   for (let i = 0; i < 10; i++) {
     bestSelling.push({
@@ -12,11 +12,11 @@ function MakananMinuman() {
       avatar:
         "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
       description:
-        "Chinese  Famost Food For Over The World, Best Quality And Spicy Food",
+        "Bag Type 20920, High Quality With Crocodile Skin, Limited Edition, ",
       overView:
-        "This one is the most popular Food for majority people either in village or city",
+        "This One Is The Best Bag Ever For A Whole World, Believe Or Not, You Will Never Be Regret",
       image:
-        "https://b.zmtcdn.com/data/pictures/1/19142331/d4bbca2157613d1cc27a6c9661702717.jpg",
+        "https://i0.wp.com/www.studiodog.co.uk/wp-content/uploads/2018/01/Fashion-Studio-Dog24.jpg?fit=1500%2C989&ssl=1",
     });
   }
 
@@ -76,4 +76,4 @@ function MakananMinuman() {
   );
 }
 
-export default MakananMinuman;
+export default Fashion;

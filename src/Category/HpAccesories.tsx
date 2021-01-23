@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { bestSelling } from "./App";
+import { bestSelling } from "../App";
 
-function PerlengkapanBayi() {
+function HPAccesories() {
   const [bestSelling, setBestSelling] = useState<bestSelling[]>([]);
   for (let i = 0; i < 10; i++) {
     bestSelling.push({
@@ -12,10 +12,11 @@ function PerlengkapanBayi() {
       avatar:
         "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
       description:
-        "Japan's product for better world towards baby, Feel the test of hilt ",
+        "World's Famost Handphone For Over The World, Best Quality And Lux Stuff",
       overView:
-        "This one is the most popular baby product, Once you lick you will never put it out",
-      image: "https://cf.shopee.co.id/file/4c7f89f01c3ad5bf49d2dd68a3a888f2",
+        "This one is the most popular hanphone for rich people, born to be elite handphone in 21st Century",
+      image:
+        "https://cdn-2.tstatic.net/kaltim/foto/bank/images/iphone-11-iphone-11-pro-dan-iphone-11-pro-max-zdnetcom.jpg",
     });
   }
 
@@ -75,4 +76,4 @@ function PerlengkapanBayi() {
   );
 }
 
-export default PerlengkapanBayi;
+export default HPAccesories;

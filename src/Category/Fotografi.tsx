@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { bestSelling } from "./App";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
+import { bestSelling } from "../App";
 
-function Fashion() {
+function Fotografi() {
   const [bestSelling, setBestSelling] = useState<bestSelling[]>([]);
   for (let i = 0; i < 10; i++) {
     bestSelling.push({
@@ -12,11 +12,11 @@ function Fashion() {
       avatar:
         "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
       description:
-        "Bag Type 20920, High Quality With Crocodile Skin, Limited Edition, ",
+        "World  Famost Camera For Over The World, Best Quality Picture",
       overView:
-        "This One Is The Best Bag Ever For A Whole World, Believe Or Not, You Will Never Be Regret",
+        "This one is the most popular Camera for majority people in development country",
       image:
-        "https://i0.wp.com/www.studiodog.co.uk/wp-content/uploads/2018/01/Fashion-Studio-Dog24.jpg?fit=1500%2C989&ssl=1",
+        "https://images-na.ssl-images-amazon.com/images/I/81S0716mezL._AC_SL1500_.jpg",
     });
   }
 
@@ -76,4 +76,4 @@ function Fashion() {
   );
 }
 
-export default Fashion;
+export default Fotografi;

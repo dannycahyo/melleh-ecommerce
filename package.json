@@ -12,6 +12,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router-dom": "^5.1.7",
     "antd": "^4.10.1",
+    "nanoid": "^3.1.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",

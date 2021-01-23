@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
-import { bestSelling } from "./App";
+import { bestSelling } from "../App";
 
 function PerlengkapanSekolah() {
   const [bestSelling, setBestSelling] = useState<bestSelling[]>([]);
