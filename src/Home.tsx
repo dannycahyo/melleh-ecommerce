@@ -7,7 +7,6 @@ import {
   ShoppingOutlined,
   StarOutlined,
   LikeOutlined,
-  MessageOutlined,
 } from "@ant-design/icons";
 
 function Home() {
@@ -211,18 +210,13 @@ function Home() {
                   text="75"
                   key="list-vertical-like-o"
                 />,
-                <IconText
-                  icon={MessageOutlined}
-                  text="25"
-                  key="list-vertical-message"
-                />,
               ]}
             >
               <Badge
                 style={{ backgroundColor: "#52c41a" }}
                 count={item.terjual}
               />
-              <Link to="/bajumuslim">
+              <Link to="/detailproduct1">
                 <Card
                   style={{ width: 240, textAlign: "center" }}
                   hoverable

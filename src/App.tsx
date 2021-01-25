@@ -8,7 +8,7 @@ import Fotografi from "./Category/Fotografi";
 import PerlengkapanSekolah from "./Category/PerlengkapanSekolah";
 import KomputerAccesories from "./Category/KomputerAccesories";
 import PerlengkapanBayi from "./Category/PerlengkapanBayi";
-import BajuMuslim from "./BajuMuslim";
+import DetailProduct1 from "./DetailProduct1";
 import { Layout, Breadcrumb, Input, Form, Button, Typography } from "antd";
 import {
   ShoppingCartOutlined,
@@ -128,7 +128,7 @@ function App() {
                 path="/perlengkapanbayi"
                 component={PerlengkapanBayi}
               />
-              <Route exact path="/bajumuslim" component={BajuMuslim} />
+              <Route exact path="/detailproduct1" component={DetailProduct1} />
             </Switch>
           </div>
         </Content>

@@ -11,6 +11,13 @@ type Foto = [
   }
 ];
 
+type Pelapak = {
+  id_pelapak: number;
+  nama_toko: string;
+  foto_pelapak: string;
+  alamat: string;
+};
+
 export type Products = {
   nama_produk: string;
   id_produk: number;
@@ -18,6 +25,8 @@ export type Products = {
   stok: string;
   terjual: string;
   foto: Foto;
+  keterangan: string;
+  pelapak: Pelapak;
 };
 
 const requestGetProducts = async () => {
