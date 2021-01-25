@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { List, Avatar, Space } from "antd";
+import { List, Avatar, Space, Typography } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
 import { bestSelling } from "../App";
 
@@ -27,9 +27,12 @@ function Elektronik() {
     </Space>
   );
 
+  const { Title } = Typography;
+
   return (
     <div>
       <div>
+        <Title level={2}>BEST PRODUCT</Title>
         <List
           itemLayout="vertical"
           size="large"

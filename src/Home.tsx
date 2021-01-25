@@ -1,19 +1,23 @@
-import React, { useState } from "react";
-import { Products } from "./App";
+import React from "react";
+import useFetchProducts from "./useFetchProducts";
 import { Card, Row, Col, List, Space, Badge, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { Link } from "react-router-dom";
-import { LikeOutlined, StarOutlined } from "@ant-design/icons";
+import {
+  ShoppingOutlined,
+  StarOutlined,
+  LikeOutlined,
+  MessageOutlined,
+} from "@ant-design/icons";
 
-type HomeProps = {
-  products: Products[];
-};
+function Home() {
+  const { products } = useFetchProducts();
 
-function Home({ products }: HomeProps) {
-  const IconText = ({ icon, text }: any) => (
+  const IconText = ({ icon, text, place }: any) => (
     <Space>
       {React.createElement(icon)}
       {text}
+      {place}
     </Space>
   );
 
@@ -184,45 +188,57 @@ function Home({ products }: HomeProps) {
         <List
           grid={{
             gutter: 16,
-            xs: 1,
-            sm: 2,
-            md: 4,
-            lg: 4,
-            xl: 6,
-            xxl: 3,
+            column: 4,
           }}
           dataSource={products}
           renderItem={(item) => (
             <List.Item
-              key={item.title}
+              style={{ alignItems: "center" }}
+              key={item.nama_produk}
               actions={[
                 <IconText
+                  icon={ShoppingOutlined}
+                  text="stok"
+                  place={item.stok}
+                />,
+                <IconText
                   icon={StarOutlined}
-                  text="156"
+                  text="150"
                   key="list-vertical-star-o"
                 />,
                 <IconText
                   icon={LikeOutlined}
-                  text="90"
+                  text="75"
                   key="list-vertical-like-o"
+                />,
+                <IconText
+                  icon={MessageOutlined}
+                  text="25"
+                  key="list-vertical-message"
                 />,
               ]}
             >
-              <Badge style={{ backgroundColor: "#52c41a" }} count={15} />
+              <Badge
+                style={{ backgroundColor: "#52c41a" }}
+                count={item.terjual}
+              />
               <Link to="/bajumuslim">
                 <Card
-                  style={{ width: 170, textAlign: "center" }}
+                  style={{ width: 240, textAlign: "center" }}
                   hoverable
                   cover={
                     <img
-                      style={{ width: 170, height: 120 }}
+                      style={{ width: 240, height: 190 }}
                       alt="product"
-                      src={item.image}
+                      src={`http://mp.comdev.id/assets/foto_produk/${item.foto[0].foto_produk}`}
                     />
                   }
                 >
-                  <Meta style={{ textAlign: "center" }} title={item.title} />
-                  {item.price}
+                  <Meta
+                    style={{ textAlign: "center" }}
+                    title={item.nama_produk}
+                  />
+                  {item.harga_jual}
                 </Card>
               </Link>
             </List.Item>
