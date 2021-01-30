@@ -9,6 +9,7 @@ import PerlengkapanSekolah from "./Category/PerlengkapanSekolah";
 import KomputerAccesories from "./Category/KomputerAccesories";
 import PerlengkapanBayi from "./Category/PerlengkapanBayi";
 import DetailProduct1 from "./DetailProduct1";
+import Profile from "./Profile";
 import { Layout, Breadcrumb, Input, Form, Button, Typography } from "antd";
 import {
   ShoppingCartOutlined,
@@ -74,12 +75,16 @@ function App() {
               style={{ marginLeft: 50, marginRight: 25, marginTop: 15 }}
               level={3}
             >
-              <UserOutlined />
-              Profile
+              <Link to="/profile">
+                <UserOutlined />
+                Profile
+              </Link>
             </Title>
             <Title style={{ marginLeft: 30, marginTop: 15 }} level={3}>
-              <ShoppingCartOutlined />
-              Keranjang
+              <Link to="/profile">
+                <ShoppingCartOutlined />
+                Keranjang
+              </Link>
             </Title>
           </div>
         </Header>
@@ -129,6 +134,7 @@ function App() {
                 component={PerlengkapanBayi}
               />
               <Route exact path="/detailproduct1" component={DetailProduct1} />
+              <Route exact path="/profile" component={Profile} />
             </Switch>
           </div>
         </Content>
