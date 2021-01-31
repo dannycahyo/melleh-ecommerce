@@ -17,7 +17,7 @@ function DetailProduct1() {
   });
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", marginBottom: 30 }}>
       <div style={{ width: 450, marginRight: 50 }}>
         <Image
           width={450}
@@ -27,7 +27,7 @@ function DetailProduct1() {
       </div>
       <div>
         <Title level={1}>{product1?.nama_produk}</Title>
-        <Title level={2}>Harga Produk {product1?.harga_jual}</Title>
+        <Title level={2}>Harga Produk {`Rp. ${product1?.harga_jual}`}</Title>
         <Paragraph style={{ fontSize: 17 }}>{product1?.keterangan}</Paragraph>
         <Button style={{ marginRight: 15, marginTop: 20 }} type="primary">
           {" "}

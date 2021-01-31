@@ -10,6 +10,7 @@ import KomputerAccesories from "./Category/KomputerAccesories";
 import PerlengkapanBayi from "./Category/PerlengkapanBayi";
 import DetailProduct1 from "./DetailProduct1";
 import Profile from "./Profile";
+import Keranjang from "./Keranjang";
 import { Layout, Breadcrumb, Input, Form, Button, Typography } from "antd";
 import {
   ShoppingCartOutlined,
@@ -81,7 +82,7 @@ function App() {
               </Link>
             </Title>
             <Title style={{ marginLeft: 30, marginTop: 15 }} level={3}>
-              <Link to="/profile">
+              <Link to="/keranjang">
                 <ShoppingCartOutlined />
                 Keranjang
               </Link>
@@ -135,6 +136,7 @@ function App() {
               />
               <Route exact path="/detailproduct1" component={DetailProduct1} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/keranjang" component={Keranjang} />
             </Switch>
           </div>
         </Content>

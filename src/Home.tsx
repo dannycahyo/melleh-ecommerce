@@ -190,15 +190,15 @@ function Home() {
             column: 4,
           }}
           dataSource={products}
-          renderItem={(item) => (
+          renderItem={(product) => (
             <List.Item
               style={{ alignItems: "center" }}
-              key={item.nama_produk}
+              key={product.nama_produk}
               actions={[
                 <IconText
                   icon={ShoppingOutlined}
                   text="stok"
-                  place={item.stok}
+                  place={product.stok}
                 />,
                 <IconText
                   icon={StarOutlined}
@@ -214,7 +214,7 @@ function Home() {
             >
               <Badge
                 style={{ backgroundColor: "#52c41a" }}
-                count={item.terjual}
+                count={product.terjual}
               />
               <Link to="/detailproduct1">
                 <Card
@@ -224,15 +224,15 @@ function Home() {
                     <img
                       style={{ width: 240, height: 190 }}
                       alt="product"
-                      src={`http://mp.comdev.id/assets/foto_produk/${item.foto[0].foto_produk}`}
+                      src={`http://mp.comdev.id/assets/foto_produk/${product.foto[0].foto_produk}`}
                     />
                   }
                 >
                   <Meta
                     style={{ textAlign: "center" }}
-                    title={item.nama_produk}
+                    title={product.nama_produk}
                   />
-                  {item.harga_jual}
+                  {`Rp. ${product.harga_jual}`}
                 </Card>
               </Link>
             </List.Item>

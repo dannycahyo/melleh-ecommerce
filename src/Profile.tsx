@@ -175,12 +175,12 @@ function Profile() {
                         <Typography.Text style={{ fontSize: 26 }}>
                           {product.nama_produk}
                         </Typography.Text>
-                        <Title level={3}>{product.harga_jual}</Title>
+                        <Title level={3}>{`Rp. ${product.harga_jual}`}</Title>
                       </Space>
                       <Typography.Text style={{ fontSize: 26 }}>
                         Total
                       </Typography.Text>
-                      <Title level={3}>{product.harga_jual}</Title>
+                      <Title level={3}>{`Rp. ${product.harga_jual}`}</Title>
                     </Space>
                   </List.Item>
                 )}
@@ -222,12 +222,12 @@ function Profile() {
                         <Typography.Text style={{ fontSize: 26 }}>
                           {product.nama_produk}
                         </Typography.Text>
-                        <Title level={3}>{product.harga_jual}</Title>
+                        <Title level={3}>{`Rp. ${product.harga_jual}`}</Title>
                       </Space>
                       <Typography.Text style={{ fontSize: 26 }}>
                         Total
                       </Typography.Text>
-                      <Title level={3}>{product.harga_jual}</Title>
+                      <Title level={3}>{`Rp. ${product.harga_jual}`}</Title>
                     </Space>
                   </List.Item>
                 )}
@@ -269,12 +269,12 @@ function Profile() {
                         <Typography.Text style={{ fontSize: 26 }}>
                           {product.nama_produk}
                         </Typography.Text>
-                        <Title level={3}>{product.harga_jual}</Title>
+                        <Title level={3}>{`Rp. ${product.harga_jual}`}</Title>
                       </Space>
                       <Typography.Text style={{ fontSize: 26 }}>
                         Total
                       </Typography.Text>
-                      <Title level={3}>{product.harga_jual}</Title>
+                      <Title level={3}>{`Rp. ${product.harga_jual}`}</Title>
                     </Space>
                   </List.Item>
                 )}
@@ -316,13 +316,13 @@ function Profile() {
                         <Typography.Text style={{ fontSize: 26 }}>
                           {product.nama_produk}
                         </Typography.Text>
-                        <Title level={3}>{product.harga_jual}</Title>
+                        <Title level={3}>{`Rp. ${product.harga_jual}`}</Title>
                       </Space>
                       <Space direction="vertical">
                         <Typography.Text style={{ fontSize: 26 }}>
                           Total
                         </Typography.Text>
-                        <Title level={3}>{product.harga_jual}</Title>
+                        <Title level={3}>{`Rp. ${product.harga_jual}`}</Title>
                       </Space>
                     </Space>
                   </List.Item>
@@ -392,10 +392,10 @@ function Profile() {
             dataSource={products?.filter((product) => {
               return product.id_produk === 1;
             })}
-            renderItem={(item) => (
+            renderItem={(product) => (
               <List.Item
                 style={{ alignItems: "center" }}
-                key={item.nama_produk}
+                key={product.nama_produk}
                 actions={[
                   <Space>
                     <Button style={{ width: 50 }} type="primary">
@@ -409,7 +409,7 @@ function Profile() {
               >
                 <Badge
                   style={{ backgroundColor: "#52c41a" }}
-                  count={item.terjual}
+                  count={product.terjual}
                 />
                 <Link to="/detailproduct1">
                   <Card
@@ -419,15 +419,15 @@ function Profile() {
                       <img
                         style={{ width: 240, height: 190 }}
                         alt="product"
-                        src={`http://mp.comdev.id/assets/foto_produk/${item.foto[0].foto_produk}`}
+                        src={`http://mp.comdev.id/assets/foto_produk/${product.foto[0].foto_produk}`}
                       />
                     }
                   >
                     <Meta
                       style={{ textAlign: "center" }}
-                      title={item.nama_produk}
+                      title={product.nama_produk}
                     />
-                    {item.harga_jual}
+                    {`Rp.${product.harga_jual}`}
                   </Card>
                 </Link>
               </List.Item>
