@@ -47,9 +47,9 @@ const requestGetProfile = async () => {
 };
 
 export default function useFetchProfile() {
-  const { data: profile } = useQuery<Profile>("profile", requestGetProfile);
+  const { data: profiles } = useQuery<Profile>("profile", requestGetProfile);
 
   return {
-    profile,
+    profiles,
   };
 }

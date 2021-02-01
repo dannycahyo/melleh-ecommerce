@@ -1,6 +1,7 @@
 import React from "react";
 import useFetchProducts, { Products } from "./useFetchProducts";
 import { ColumnsType } from "antd/lib/table";
+import { Link } from "react-router-dom";
 import {
   Table,
   Button,
@@ -26,35 +27,42 @@ function Keranjang() {
       },
     },
     {
-      title: "Produk",
+      title: <Typography.Title level={5}>Produk</Typography.Title>,
       render: () => {
         return (
           <Image
             height={130}
             width={140}
             src={`http://mp.comdev.id/assets/foto_produk/${product1?.foto[0].foto_produk}`}
-            children={
-              <Typography.Title level={4}>
-                {product1?.nama_produk}
-              </Typography.Title>
-            }
           />
         );
       },
     },
     {
-      title: "Harga",
-      dataIndex: "harga_jual",
+      title: "",
+      dataIndex: "nama_produk",
     },
     {
-      title: "Jumlah",
+      title: <Typography.Title level={5}>Harga</Typography.Title>,
+      render: () => {
+        return (
+          <Typography.Text>{`Rp.${product1?.harga_jual}`}</Typography.Text>
+        );
+      },
+    },
+    {
+      title: <Typography.Title level={5}>Jumlah</Typography.Title>,
       render: () => {
         return <InputNumber min={1} max={100} defaultValue={1} />;
       },
     },
     {
-      title: "Sub Harga",
-      dataIndex: "harga_jual",
+      title: <Typography.Title level={5}>Sub Harga</Typography.Title>,
+      render: () => {
+        return (
+          <Typography.Text>{`Rp.${product1?.harga_jual}`}</Typography.Text>
+        );
+      },
     },
     {
       title: "",
@@ -79,7 +87,9 @@ function Keranjang() {
         />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Button type="primary">Lanjut Belanja</Button>
-          <Button type="primary">Lanjut Checkout</Button>
+          <Link to="/checkout">
+            <Button type="primary">Lanjut Checkout</Button>
+          </Link>
         </div>
       </div>
       <div style={{ width: "30%", height: 130, marginLeft: 50 }}>

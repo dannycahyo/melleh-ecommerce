@@ -40,7 +40,7 @@ function Profile() {
     setIsModalVisible(false);
   };
 
-  const { profile } = useFetchProfile();
+  const { profiles } = useFetchProfile();
 
   const { products } = useFetchProducts();
 
@@ -105,15 +105,15 @@ function Profile() {
             </div>
             <Form style={{ width: "40%" }} {...layout}>
               <Form.Item label="Nama Lengkap">
-                <Input value={profile?.data.nama_lengkap} />
+                <Input value={profiles?.data.nama_lengkap} />
               </Form.Item>
               <Form.Item label="Nomor HP">
-                <Input value={profile?.data.nomor_hp} />
+                <Input value={profiles?.data.nomor_hp} />
               </Form.Item>
             </Form>
             <Form style={{ width: "40%" }} {...layout}>
               <Form.Item label="Email">
-                <Input value={profile?.data.email} />
+                <Input value={profiles?.data.email} />
               </Form.Item>
               <Form.Item label="Foto">
                 <Upload>
@@ -341,7 +341,7 @@ function Profile() {
           <List
             itemLayout="vertical"
             bordered
-            dataSource={profile?.data.daftar_alamat}
+            dataSource={profiles?.data.daftar_alamat}
             renderItem={(profile) => (
               <List.Item>
                 <List.Item.Meta

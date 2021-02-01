@@ -22,6 +22,7 @@ export type Products = {
   nama_produk: string;
   id_produk: number;
   harga_jual: string;
+  berat: string;
   stok: string;
   terjual: string;
   foto: Foto;

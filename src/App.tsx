@@ -11,6 +11,7 @@ import PerlengkapanBayi from "./Category/PerlengkapanBayi";
 import DetailProduct1 from "./DetailProduct1";
 import Profile from "./Profile";
 import Keranjang from "./Keranjang";
+import Checkout from "./Checkout";
 import { Layout, Breadcrumb, Input, Form, Button, Typography } from "antd";
 import {
   ShoppingCartOutlined,
@@ -137,6 +138,7 @@ function App() {
               <Route exact path="/detailproduct1" component={DetailProduct1} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/keranjang" component={Keranjang} />
+              <Route exact path="/checkout" component={Checkout} />
             </Switch>
           </div>
         </Content>
