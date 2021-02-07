@@ -224,7 +224,7 @@ function Home() {
                     <img
                       style={{ width: 240, height: 190 }}
                       alt="product"
-                      src={`http://mp.comdev.id/assets/foto_produk/${product.foto[0].foto_produk}`}
+                      src={`http://seller.comdev.id/assets/foto_produk/${product.foto[0].foto_produk}`}
                     />
                   }
                 >

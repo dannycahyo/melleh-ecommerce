@@ -1,9 +1,21 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import userEvent from "@testing-library/user-event"
+import { kMaxLength } from 'buffer';
 
-test('renders learn react link', () => {
+global.matchMedia =
+  global.matchMedia ||
+  function () {
+    return {
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    };
+  };
+
+test('Testing the whole application', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  screen.debug(undefined,kMaxLength)
+  
 });

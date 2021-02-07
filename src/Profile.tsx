@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useFetchProfile from "./useFetchProfile";
 import useFetchProducts from "./useFetchProducts";
+import useFetchAddress, { Address } from "./useFetchAddress"
 import { Link } from "react-router-dom";
 import {
   Tabs,
@@ -17,6 +18,7 @@ import {
   Avatar,
   Badge,
   Card,
+  Select
 } from "antd";
 import {
   ShoppingCartOutlined,
@@ -25,24 +27,48 @@ import {
 } from "@ant-design/icons";
 import Meta from "antd/lib/card/Meta";
 
+type LayoutType = Parameters<typeof Form>[0]['layout'];
+
 function Profile() {
-  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-
-  const handleShowModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOkModal = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancelModal = () => {
-    setIsModalVisible(false);
-  };
 
   const { profiles } = useFetchProfile();
 
   const { products } = useFetchProducts();
+
+  const { address } = useFetchAddress()
+
+  // const province = [address?.provinsi.rajaongkir.results]
+
+  const [isModalPasswordVisible, setIsModalPasswordVisible] = useState<boolean>(false);
+
+  const [isModalAddressVisible,setIsModalAddressVisible] = useState<boolean>(false)
+
+  const [formLayout, setFormLayout] = useState<LayoutType>("vertical");
+
+  const handleShowModalPassoword = () => {
+    setIsModalPasswordVisible(true);
+  };
+
+  const handleOkModalPassword = () => {
+    setIsModalPasswordVisible(false);
+  };
+
+  const handleCancelModalPassword = () => {
+    setIsModalPasswordVisible(false);
+  };
+
+  const handleShowModalAddress = () => {
+    setIsModalAddressVisible(true)
+    setFormLayout("vertical")
+  }
+
+  const handleOkModalAddress = () => {
+    setIsModalAddressVisible(false)
+  }
+
+  const handleCancelModalAddress = () => {
+    setIsModalAddressVisible(false)
+  } 
 
   const { TabPane } = Tabs;
 
@@ -52,6 +78,14 @@ function Profile() {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
   };
+
+  const formItemLayout =
+    formLayout === "vertical"
+      ? {
+          labelCol: { span: 16 },
+          wrapperCol: { span: 24 },
+        }
+      : null;
 
   const tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
@@ -78,15 +112,15 @@ function Profile() {
                   marginLeft: 25,
                 }}
                 type="primary"
-                onClick={handleShowModal}
+                onClick={handleShowModalPassoword}
               >
                 Ganti Password
               </Button>
               <Modal
                 title={<Title level={2}>Ganti Password</Title>}
-                visible={isModalVisible}
-                onCancel={handleCancelModal}
-                onOk={handleOkModal}
+                visible={isModalPasswordVisible}
+                onCancel={handleCancelModalPassword}
+                onOk={handleOkModalPassword}
               >
                 <Form {...layout}>
                   <Form.Item>
@@ -335,9 +369,49 @@ function Profile() {
           <Divider orientation="left">
             {<Title level={2}>Data Alamat</Title>}
           </Divider>
-          <Button style={{ marginBottom: 20 }} type="primary">
+          <Button style={{ marginBottom: 20 }} onClick={handleShowModalAddress} type="primary">
             Tambah+
           </Button>
+          <Modal
+          title={<Title level={2}>Tambah Data Alamat</Title>}
+          visible={isModalAddressVisible}
+          onOk={handleOkModalAddress}
+          onCancel={handleCancelModalAddress}
+          >
+            <Form {...formItemLayout} layout={formLayout}>
+              <Space size="middle">
+                <Form.Item label="Nama">
+                  <Input />
+                </Form.Item>
+                <Form.Item label="Nomor Telepon">
+                  <Input />
+                </Form.Item>
+              </Space>
+              <Space size="middle">
+                <Form.Item label="Provinsi">
+                  <Select allowClear style={{ width:"100%"  }} >
+                    <Select.Option value="address">
+                      {address?.provinsi.rajaongkir.results[0].province}
+                    </Select.Option>                
+                  </Select>
+                </Form.Item>
+                <Form.Item label="Kota">
+                  <Input />
+                </Form.Item>
+                <Form.Item label="Kecamatan">
+                  <Input />
+                </Form.Item>
+              </Space>
+              <Space size="middle">
+              <Form.Item  label="Kode Pos">
+                  <Input />
+                </Form.Item>
+                <Form.Item label="Alamat Lengkap">
+                  <Input />
+                </Form.Item>
+              </Space>            
+            </Form>
+          </Modal>
           <List
             itemLayout="vertical"
             bordered
