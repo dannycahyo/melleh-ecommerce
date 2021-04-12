@@ -31,7 +31,7 @@ export type Products = {
 };
 
 const requestGetProducts = async () => {
-  const res = await fetch("http://mp.comdev.id/api/produk");
+  const res = await fetch(`${process.env.REACT_APP_PRODUCT_URL}`);
   return res.json();
 };
 

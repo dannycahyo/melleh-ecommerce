@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useFetchProfile from "./useFetchProfile";
 import useFetchProducts from "./useFetchProducts";
-import useFetchAddress, { Address } from "./useFetchAddress"
+import useFetchAddress, { Results } from "./useFetchAddress";
 import { Link } from "react-router-dom";
 import {
   Tabs,
@@ -18,7 +18,7 @@ import {
   Avatar,
   Badge,
   Card,
-  Select
+  Select,
 } from "antd";
 import {
   ShoppingCartOutlined,
@@ -27,21 +27,47 @@ import {
 } from "@ant-design/icons";
 import Meta from "antd/lib/card/Meta";
 
-type LayoutType = Parameters<typeof Form>[0]['layout'];
+type LayoutType = Parameters<typeof Form>[0]["layout"];
 
 function Profile() {
-
   const { profiles } = useFetchProfile();
 
   const { products } = useFetchProducts();
 
-  const { address } = useFetchAddress()
+  const { address } = useFetchAddress();
 
-  // const province = [address?.provinsi.rajaongkir.results]
+  const [province, setProvince] = useState<string>("");
 
-  const [isModalPasswordVisible, setIsModalPasswordVisible] = useState<boolean>(false);
+  const provinceAddress = address?.provinsi.rajaongkir.results.map(
+    (province) => {
+      return province.province;
+    }
+  );
 
-  const [isModalAddressVisible,setIsModalAddressVisible] = useState<boolean>(false)
+  const provinceResult = [...(provinceAddress ? provinceAddress : [])];
+
+  // const fixProvince = provinceResult.forEach((item) => {
+  //   setProvince(item)
+  // })
+
+  // const provinceAddress = address?.provinsi.rajaongkir.results.forEach((province) => {
+  //   return province.province
+  // })
+
+  // const provinceResult = address?.provinsi.rajaongkir.results
+
+  // const [provinceAddress,setProvinceAddress] = useState<Results[]>([])
+  // for (let i = 0; i < provinceAddress.length ; i ++) {
+  //   provinceAddress.push(...provinceAddress)
+  // }
+
+  const [isModalPasswordVisible, setIsModalPasswordVisible] = useState<boolean>(
+    false
+  );
+
+  const [isModalAddressVisible, setIsModalAddressVisible] = useState<boolean>(
+    false
+  );
 
   const [formLayout, setFormLayout] = useState<LayoutType>("vertical");
 
@@ -58,17 +84,21 @@ function Profile() {
   };
 
   const handleShowModalAddress = () => {
-    setIsModalAddressVisible(true)
-    setFormLayout("vertical")
-  }
+    setIsModalAddressVisible(true);
+    setFormLayout("vertical");
+  };
 
   const handleOkModalAddress = () => {
-    setIsModalAddressVisible(false)
-  }
+    setIsModalAddressVisible(false);
+  };
 
   const handleCancelModalAddress = () => {
-    setIsModalAddressVisible(false)
-  } 
+    setIsModalAddressVisible(false);
+  };
+
+  const handleSelectChange = () => {
+    setProvince(province);
+  };
 
   const { TabPane } = Tabs;
 
@@ -369,14 +399,18 @@ function Profile() {
           <Divider orientation="left">
             {<Title level={2}>Data Alamat</Title>}
           </Divider>
-          <Button style={{ marginBottom: 20 }} onClick={handleShowModalAddress} type="primary">
+          <Button
+            style={{ marginBottom: 20 }}
+            onClick={handleShowModalAddress}
+            type="primary"
+          >
             Tambah+
           </Button>
           <Modal
-          title={<Title level={2}>Tambah Data Alamat</Title>}
-          visible={isModalAddressVisible}
-          onOk={handleOkModalAddress}
-          onCancel={handleCancelModalAddress}
+            title={<Title level={2}>Tambah Data Alamat</Title>}
+            visible={isModalAddressVisible}
+            onOk={handleOkModalAddress}
+            onCancel={handleCancelModalAddress}
           >
             <Form {...formItemLayout} layout={formLayout}>
               <Space size="middle">
@@ -389,10 +423,15 @@ function Profile() {
               </Space>
               <Space size="middle">
                 <Form.Item label="Provinsi">
-                  <Select allowClear style={{ width:"100%"  }} >
-                    <Select.Option value="address">
-                      {address?.provinsi.rajaongkir.results[0].province}
-                    </Select.Option>                
+                  <Select
+                    allowClear
+                    value={provinceResult}
+                    style={{ width: "100%" }}
+                    onChange={handleSelectChange}
+                  >
+                    <Select.Option value={province}>
+                      {provinceResult}
+                    </Select.Option>
                   </Select>
                 </Form.Item>
                 <Form.Item label="Kota">
@@ -403,13 +442,13 @@ function Profile() {
                 </Form.Item>
               </Space>
               <Space size="middle">
-              <Form.Item  label="Kode Pos">
+                <Form.Item label="Kode Pos">
                   <Input />
                 </Form.Item>
                 <Form.Item label="Alamat Lengkap">
                   <Input />
                 </Form.Item>
-              </Space>            
+              </Space>
             </Form>
           </Modal>
           <List

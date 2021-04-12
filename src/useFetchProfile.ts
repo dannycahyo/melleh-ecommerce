@@ -42,7 +42,7 @@ type Profile = {
 };
 
 const requestGetProfile = async () => {
-  const res = await fetch("http://mp.comdev.id/api/konsumen/profil/1");
+  const res = await fetch(`${process.env.REACT_APP_PROFILE_URL}/1`);
   return res.json();
 };
 
